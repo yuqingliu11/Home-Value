@@ -33,8 +33,3 @@ def plot_state():
      searched_state = price.loc[price['State'] == state, dates]
      state_mean = searched_state.mean(axis=0)
      return(x,state_mean)
-
-
-
-
-

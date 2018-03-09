@@ -58,56 +58,52 @@
         <p class="lead">Please descirbe property of interest</p>
       </div>
 
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">size (sqft)
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-         <li><a href="#">HTML</a></li>
-         <li><a href="#">CSS</a></li>
-         <li><a href="#">JavaScript</a></li>
-        </ul>
-      </div>
-
-      <br>
-
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">type
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-         <li><a href="#">HTML</a></li>
-         <li><a href="#">CSS</a></li>
-         <li><a href="#">JavaScript</a></li>
-        </ul>
-      </div>
-
-      <br>
-
-      <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="zip code" aria-label="Search by zip code">
+      <form class="form-inline my-2 my-lg-0 mx-auto" method="POST" style = "width: 720px;">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">size (sqft)
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">type
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+           <li><a href="#">HTML</a></li>
+           <li><a href="#">CSS</a></li>
+           <li><a href="#">JavaScript</a></li>
+          </ul>
+        </div>
+        <div class="row">
+          <!--how does bootstrap format? newline: row div? force span? 12 grid system? etc-->
+        </div>
+        <div class="form-group span12">
+          <label for="date">Date:</label>
+          <input name="date" id ="date" class="form-control mr-sm-2 ml-2" placeholder="Format: YYYY-MM">
+        </div>
+        <div class="form-group span12">
+          <label for="hometype">Home Type:</label>
+          <input name="hometype" id ="hometype" class="form-control mr-sm-2 ml-2" placeholder="e.g. bed2">
+        </div>
+        <div class="row">
+        </div>
+        <div class="form-group">
+          <label for="zipcode">Zip Code:</label>
+          <input name="zipcode" id ="zipcode" class="form-control mr-sm-2 ml-2" placeholder="Enter Zip Code">
+        </div>
+        <div class="form-group ml-5">
+          <label for="city">City:</label>
+          <input name="city" id ="city" class="form-control mr-sm-2 ml-2" placeholder="Enter City">
+        </div>
+        <div class="form-group ml-5">
+          <label for="state">State:</label>
+          <input name="state" id ="state" class="form-control mr-sm-2 ml-2" placeholder="Enter State">
+        </div>
+        <button class="btn btn-success" type="submit">Calculate</button>
       </form>
-
-      <br>
-
-      <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="city" aria-label="Search by city">
-      </form>
-
-      <br>
-
-      <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="state" aria-label="Search by state">
-      </form>
-
-      <br>
-
-      <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="month/year" aria-label="Search by time">
-      </form>
-
-      <br>
-
-      <button type="button" class="btn btn-success">Calculate</button>
-
     </main><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
