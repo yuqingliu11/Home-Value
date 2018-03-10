@@ -11,8 +11,6 @@ from datetime import datetime
 # import matplotlib.pyplot as plt
 from application import db
 
-
-
 # compute difference of dates in number of months
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
@@ -50,12 +48,26 @@ def predict_price(zipcode,test_date,hometype,all_parameters,all_means):
      else:
           return(base_result)
 
-db.drop_all()
+def clear_data(db):
+    meta = db.metadata
+    for table in reversed(meta.sorted_tables):
+        print 'Clear table %s' % table
+        db.session.execute(table.delete())
+    db.session.commit()
+
+# clear_data(db)
+drop_all_means = 'DROP TABLE IF EXISTS all_means;'
+drop_all_parameters = 'DROP TABLE IF EXISTS all_parameters'
+db.session.execute(drop_all_means)
+db.session.execute(drop_all_parameters)
+# db.drop_all()
 csv_parameters = pd.read_csv('static/data/prediction/base_parameters.csv',converters={'zipcode': str})
 csv_means = pd.read_csv('static/data/prediction/adjust_means.csv',converters={'zipcode': str})
-print(csv_parameters)
-print(csv_means)
-print("Original Data Finish Loading!")
+# print("csv_parameters")
+# print(csv_parameters)
+# print("csv_means")
+# print(csv_means)
+# print("Original Data Finish Loading!")
 try:
     csv_parameters.to_sql("all_parameters", db.engine, index = False)
     print("added parameters!")
@@ -66,9 +78,10 @@ try:
     print("added means!")
 except:
     print("means added already...")
-
 all_parameters = pd.read_sql('SELECT * FROM all_parameters', db.engine)
 all_means = pd.read_sql('SELECT * FROM all_means', db.engine)
 
-print(all_parameters)
-print(all_means)
+# print("all_parameters:")
+# print(all_parameters)
+# print("all_means:")
+# print(all_means)
