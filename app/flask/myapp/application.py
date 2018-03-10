@@ -3,18 +3,15 @@ Flask application to predict housing price
 
 Deployed to Amazon Web Services using Elastic Beanstalk and RDS
 '''
-
 from flask import Flask, render_template, request
 from application import db
-from application.models import Data
-from application.forms import EnterDBInfo, RetrieveDBInfo
 from application.visual import plot
-from application.prediction import predict_price, all_parameters, all_means
+from application.prediction import predict_price
+
 # Pandas
 import pandas as pd
 import numpy as np
-
-#from flask_bootstrap import Bootstrap
+# from flask_bootstrap import Bootstrap
 
 # Elastic Beanstalk initalization
 application = Flask(__name__)
@@ -23,29 +20,20 @@ application.debug=True
 # change this to your own value
 application.secret_key = 'cC1YCIWOj9GgWspgNEo2'
 
-# try:
-#     df1.to_sql("df1", db.engine)
-#     print("New df1 generated")
-# except:
-#     print("filled")
-
-# data = pd.read_sql('SELECT * FROM df1', db.engine)
-# print(data)
+try:
+    all_parameters = pd.read_sql('SELECT * FROM all_parameters', db.engine)
+    all_means = pd.read_sql('SELECT * FROM all_means', db.engine)
+    # print("all_parameters:")
+    # print(all_parameters)
+    # print("all_means:")
+    # print(all_means)
+    print("Modeling data loaded from SQL successfully.")
+except:
+    print("Failed to retrieve modeling data from SQL.")
 
 @application.route('/', methods=['GET', 'POST'])
 @application.route('/index', methods=['GET', 'POST'])
 def index():
-    # form1 = EnterDBInfo(request.form) 
-    # form2 = RetrieveDBInfo(request.form) 
-    # if request.method == 'POST' and form1.validate():
-    #     data_entered = Data(notes=form1.dbNotes.data)
-    #     try:     
-    #         db.session.add(data_entered)
-    #         db.session.commit()        
-    #         db.session.close()
-    #     except:
-    #         db.session.rollback()
-    #     return render_template('thanks.html', notes=form1.dbNotes.data)
     return render_template('index.html')
 
 @application.route('/visualization', methods=['GET', 'POST'])

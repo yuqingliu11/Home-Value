@@ -7,7 +7,7 @@ A few quick tips
 
 If problems ever arrise when installing a certain tool (which is not unusual), try taking away the version requirement.
 
-
+The following are introductory instruction that comes with the flask template:
 
 
 ### Deploying a Flask application in AWS: An end-to-end tutorial
