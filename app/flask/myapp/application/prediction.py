@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from statsmodels.tsa.seasonal import seasonal_decompose
+# from statsmodels.tsa.seasonal import seasonal_decompose
 from pandas import Series,DataFrame,DatetimeIndex
 from scipy import stats
 from datetime import datetime

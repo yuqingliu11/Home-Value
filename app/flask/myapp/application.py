@@ -6,7 +6,7 @@ Deployed to Amazon Web Services using Elastic Beanstalk and RDS
 from flask import Flask, render_template, request
 from application import db
 from application.visual import plot
-# from application.prediction import predict_price
+from application.prediction import predict_price
 
 # Pandas
 import pandas as pd
@@ -53,18 +53,18 @@ def visualization():
         #location = detect_loc("60201")
     return render_template('visualization.html', labels = x, data = y1, data2 = y2, data3 = miss, result_desc = desc)
 
-# @application.route('/prediction', methods=['GET', 'POST'])
-# def prediction():
-#     if request.method == 'POST':
-#         # ??? please know how to test the validity of those things!
-#         zipcode = request.form['zipcode']
-#         # YYYY-MM, e.g. 2018-10
-#         date = request.form['date']
-#         # e.g. bed2
-#         hometype = request.form['hometype']
-#         price = predict_price(zipcode, date, hometype, all_parameters, all_means)
-#         print(price)
-#     return render_template('prediction.html')
+@application.route('/prediction', methods=['GET', 'POST'])
+def prediction():
+    if request.method == 'POST':
+        # ??? please know how to test the validity of those things!
+        zipcode = request.form['zipcode']
+        # YYYY-MM, e.g. 2018-10
+        date = request.form['date']
+        # e.g. bed2
+        hometype = request.form['hometype']
+        price = predict_price(zipcode, date, hometype, all_parameters, all_means)
+        print(price)
+    return render_template('prediction.html')
 
 if __name__ == '__main__':
     application.run(host='0.0.0.0')
