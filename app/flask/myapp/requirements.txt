@@ -13,4 +13,3 @@ itsdangerous
 wsgiref
 boto
 pandas
-statsmodels
