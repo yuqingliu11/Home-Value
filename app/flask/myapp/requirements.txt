@@ -1,6 +1,7 @@
 Flask
 Flask-SQLAlchemy
 Flask-WTF
+flask-bootstrap
 Jinja2
 MarkupSafe
 PyMySQL
@@ -13,4 +14,3 @@ itsdangerous
 wsgiref
 boto
 pandas
-statsmodels
