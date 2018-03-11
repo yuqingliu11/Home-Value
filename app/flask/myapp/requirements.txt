@@ -1,7 +1,6 @@
 Flask
 Flask-SQLAlchemy
 Flask-WTF
-flask-bootstrap
 Jinja2
 MarkupSafe
 PyMySQL
