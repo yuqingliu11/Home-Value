@@ -18,7 +18,8 @@ application = Flask(__name__)
 #Bootstrap(application)
 application.debug=True
 # change this to your own value
-application.secret_key = 'cC1YCIWOj9GgWspgNEo2'
+# application.secret_key = 'cC1YCIWOj9GgWspgNEo2'
+# application.secret_key = 'yfvjkI7803otyFhkmgvv'
 
 try:
     all_parameters = pd.read_sql('SELECT * FROM all_parameters', db.engine)

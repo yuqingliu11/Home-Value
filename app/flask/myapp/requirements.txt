@@ -13,3 +13,4 @@ itsdangerous==0.24
 wsgiref
 boto==2.28.0
 pandas
+statsmodels
