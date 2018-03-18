@@ -33,18 +33,6 @@
             <a class="nav-link disabled" href="#">Prediction</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Data</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
         </ul>
       </div>
     </nav>
@@ -58,61 +46,98 @@
         <p class="lead">Please descirbe property of interest</p>
       </div>
 
-      <form class="form-inline my-2 my-lg-0 mx-auto" method="POST" style = "width: 720px;">
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">size (sqft)
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-          </ul>
+
+      <div class="row">
+        <div class="form-group col-xs-6">
+        <form class="form-inline my-2 my-lg-0 mx-auto" method="POST" style = "width: 1020px;">
+        <label for="type">Home Type:</label>
+        <div class="form-check span12 my-1 my-lg-0 mx-auto">
+          <input class="form-check-input" type="radio" name="type" id="exampleRadios1" value="bed1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            1 bed
+          </label>
         </div>
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">type
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu">
-           <li><a href="#">HTML</a></li>
-           <li><a href="#">CSS</a></li>
-           <li><a href="#">JavaScript</a></li>
-          </ul>
+        <div class="form-check span12 my-1 my-lg-0 mx-auto">
+          <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="bed2">
+          <label class="form-check-label" for="exampleRadios2">
+            2 beds
+          </label>
         </div>
+        <div class="form-check span12 my-1 my-lg-0 mx-auto">
+          <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="bed3">
+          <label class="form-check-label" for="exampleRadios2">
+            3 beds
+          </label>
+        </div>
+        <div class="form-check span12 my-1 my-lg-0 mx-auto">
+          <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="bed4">
+          <label class="form-check-label" for="exampleRadios2">
+            4 beds
+          </label>
+        </div>
+        <div class="form-check span12 my-1 my-lg-0 mx-auto">
+          <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="bed5">
+          <label class="form-check-label" for="exampleRadios2">
+            5+ beds
+          </label>
+        </div>
+        <div class="form-check span12 my-1 my-lg-0 mx-auto">
+          <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="condo">
+          <label class="form-check-label" for="exampleRadios2">
+            condo
+          </label>
+        </div>
+        <div class="form-check span12 my-1 my-lg-0 mx-auto">
+          <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="single">
+          <label class="form-check-label" for="exampleRadios2">
+            single family house
+          </label>
+        </div>
+
+
+
         <div class="row">
-          <!--how does bootstrap format? newline: row div? force span? 12 grid system? etc-->
+        
+        <form class="form-inline my-2 my-lg-0 mx-auto" method="POST" style = "width: 1020px;">
+
+          <div class="form-group span12 my-1 my-lg-0 mx-auto" >
+            <label for="date">Date:</label>
+            <input name="date" id ="date" class="form-control mr-sm-2 ml-2" placeholder="Format: YYYY-MM">
+          </div>
+
+
+          <div class="form-group my-2 my-lg-0 mx-auto">
+            <label for="zipcode">Zip Code:</label>
+            <input name="zipcode" id ="zipcode" class="form-control mr-sm-2 ml-2" placeholder="Enter Zip Code">
+          </div>
+          <button class="btn btn-success" type="submit">Calculate</button>
         </div>
-        <div class="form-group span12">
-          <label for="date">Date:</label>
-          <input name="date" id ="date" class="form-control mr-sm-2 ml-2" placeholder="Format: YYYY-MM">
-        </div>
-        <div class="form-group span12">
-          <label for="hometype">Home Type:</label>
-          <input name="hometype" id ="hometype" class="form-control mr-sm-2 ml-2" placeholder="e.g. bed2">
-        </div>
-        <div class="row">
-        </div>
-        <div class="form-group">
-          <label for="zipcode">Zip Code:</label>
-          <input name="zipcode" id ="zipcode" class="form-control mr-sm-2 ml-2" placeholder="Enter Zip Code">
-        </div>
-        <div class="form-group ml-5">
-          <label for="city">City:</label>
-          <input name="city" id ="city" class="form-control mr-sm-2 ml-2" placeholder="Enter City">
-        </div>
-        <div class="form-group ml-5">
-          <label for="state">State:</label>
-          <input name="state" id ="state" class="form-control mr-sm-2 ml-2" placeholder="Enter State">
-        </div>
-        <button class="btn btn-success" type="submit">Calculate</button>
+      <!--print out prediction-->
       </form>
+
+      <div class="row">
+       <p>
+        <h4>{{prediction}}</h4>
+       </p>
+      <div>
+      
     </main><!-- /.container -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <!--script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script-->
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.js') }}"></script>
+    <!--script> $( "a.dropdown-item" ).on( "click", function(){
+      $("div.testing").html( '<strong>WHAT?!?!?!?!</strong>' );
+    })</script>
+    <script> $( "button.dropdown-toggle" ).on( "click", function(){
+      $("div.testing").html( '<h1>Home Value Prediction</h1>' );
+    })</script-->
+    <!--button.dropdown-toggle /, ".dropdown-menu a", / '.dropdown-menu'/.on('click', '.dropdown-menu li a', function() {$('#datebox').val($(this).html());})-->
+    <!--script src="../../../../dist/js/bootstrap.min.js"></script-->
   </body>
 </html>
 

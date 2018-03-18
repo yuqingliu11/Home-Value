@@ -55,16 +55,22 @@ def visualization():
 
 @application.route('/prediction', methods=['GET', 'POST'])
 def prediction():
+    output = "test output"
     if request.method == 'POST':
         # ??? please know how to test the validity of those things!
         zipcode = request.form['zipcode']
         # YYYY-MM, e.g. 2018-10
         date = request.form['date']
         # e.g. bed2
-        hometype = request.form['hometype']
-        price = predict_price(zipcode, date, hometype, all_parameters, all_means)
-        print(price)
-    return render_template('prediction.html')
+        hometype = request.form['type']
+        print(request.form)
+        print(hometype)
+
+        pred = predict_price(zipcode, date, hometype, all_parameters, all_means)
+        pred = [int(p) for p in pred]
+
+        output = "The estimated price is between $"+ str(pred[1]) +" and $" + str(pred[2])
+    return render_template('prediction.html', prediction = output)
 
 if __name__ == '__main__':
     application.run(host='0.0.0.0')

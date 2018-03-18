@@ -1,6 +1,7 @@
 body {
   padding-top: 5rem;
 }
+
 .starter-template {
   padding: 3rem 1.5rem;
   text-align: center;
@@ -12,12 +13,12 @@ body {
 }
 
 .dropdown .btn.btn-primary.dropdown-toggle {
-	width: 193px;
+  width: 193px;
 	color: grey;
 	background-color: white;
 	border-color: lightgrey;
 }
 
 .form-inline.my-2.my-lg-0 > * {
-   margin:5px 3px;
+  margin: 5px 3px;
 }
