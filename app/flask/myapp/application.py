@@ -39,7 +39,7 @@ def index():
 
 @application.route('/visualization', methods=['GET', 'POST'])
 def visualization():
-    desc = "The historical data of the region is displayed below."
+    #input_zip = "60201"
     if request.method == 'POST':
         input_zip = request.form['zipcode']
         if (plot(input_zip)=="error"):
@@ -47,10 +47,13 @@ def visualization():
             desc = "The input zip code is invalid."
         else:
             [x,y1,y2,miss] = plot(input_zip)
+            desc = "The historical data of zip code " + input_zip + " is displayed below."
             #location = detect_loc(input_zip)         
     else:
         [x,y1,y2,miss] = plot("60201")
+        desc = "The historical data of zip code 60201 is displayed below."
         #location = detect_loc("60201")
+    #desc = "The historical data of zip code " + input_zip + " is displayed below."
     return render_template('visualization.html', labels = x, data = y1, data2 = y2, data3 = miss, result_desc = desc)
 
 @application.route('/prediction', methods=['GET', 'POST'])
