@@ -18,7 +18,7 @@ def plot(zipcode):
           price_period = price.iloc[:,len(price.columns)-12*5-1 : len(price.columns)]
           national_mean = price_period.mean(axis=0)/1000
           national_mean = national_mean.tolist()
-          return(x, yprice, national_mean, missing_fill)
+          return(dates, yprice, national_mean, missing_fill)
 
 #def detect_loc(zipcode):  
 #	 price = pd.read_csv('static/data/Zip_MedianListingPrice_AllHomes.csv',converters={'RegionName': str})

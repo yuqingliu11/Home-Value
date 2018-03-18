@@ -110,14 +110,16 @@
             <label for="zipcode">Zip Code:</label>
             <input name="zipcode" id ="zipcode" class="form-control mr-sm-2 ml-2" placeholder="Enter Zip Code">
           </div>
-          <button class="btn btn-success" type="submit">Calculate</button>
+          <button class="btn pull-right btn-success " type="submit">Calculate</button>
         </div>
       <!--print out prediction-->
       </form>
 
-      <div class="row">
+      <div class="row" style="margin-top:30px">
        <p>
-        <h4>{{prediction}}</h4>
+        <div class="col-lg-12">
+           <h4 class = "display text-center">{{prediction}}</h4>
+        </div>
        </p>
       <div>
       

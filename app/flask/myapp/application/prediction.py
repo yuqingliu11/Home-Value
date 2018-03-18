@@ -14,11 +14,26 @@ from datetime import datetime
 def diff_month(d1, d2):
     return (d1.year - d2.year) * 12 + d1.month - d2.month
 
+# check if user input date is valid
+def check_date(test_date):
+     if (len(test_date.split('-'))==2):
+          date = test_date.split('-')
+          try:
+               if (int(date[0])>2017 and int(date[0])<2099 and int(date[1])>0 and int(date[1])<13):
+                    return(True)
+               else:
+                    return(False)
+          except ValueError:
+               return False
+     else:
+          return(False)
+     
+
 # predict median price of a region with time series components
 def timeseries_predict(all_parameters, zipcode,test_date):
      zip_parameters = all_parameters.loc[all_parameters['zipcode'] == zipcode]
      if (zip_parameters.shape[0] == 0):
-          return("zipcode not found")
+          return("The input zipcode is not available.")
      else:
           test_noise = zip_parameters["residual_median"]
           gap = diff_month(datetime.strptime(test_date, '%Y-%m'),datetime.strptime('2017-12', '%Y-%m'))
@@ -40,10 +55,13 @@ def adjust_predict(all_means, base_result,hometype, zipcode):
 
 # combine the two functions above
 def predict_price(zipcode,test_date,hometype,all_parameters,all_means):
-     base_result = timeseries_predict(all_parameters, zipcode, test_date)
-     if (type(base_result)!=str):
-          final_result = adjust_predict(all_means, base_result,hometype,zipcode)
-          return(final_result)
+     if (check_date(test_date)):
+          base_result = timeseries_predict(all_parameters, zipcode, test_date)
+          if (type(base_result)!=str):
+               final_result = adjust_predict(all_means, base_result,hometype,zipcode)
+               return(final_result)
+          else:
+               return(base_result)
      else:
-          return(base_result)
+          return("The input date is invalid.")
 
