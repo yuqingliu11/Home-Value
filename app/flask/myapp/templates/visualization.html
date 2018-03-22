@@ -3,6 +3,7 @@
 
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,17 +11,12 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+    <title>Home Price Visualization</title>
   </head>
 
+  
+  <!--body background="{{ url_for('static',filename='images/map1.jpg') }}"-->
   <body>
-
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">Home Value</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,19 +36,6 @@
             <a class="nav-link disabled" href="prediction">Prediction</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Data</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-
         </ul>
       </div>
     </nav>
@@ -63,22 +46,16 @@
 
       <div class="starter-template">
         <h1>Historical Data Visualization</h1>
-        <p class="lead">Please enter region of interest (zip code / city & state)</p>
+        <p class="lead">Please enter region of interest (zip code)</p>
       </div>
 
 
-        <form class="form-inline my-2 my-lg-0 mx-auto" method="POST" style = "width: 720px;">
+        <form class="form-inline my-2 my-lg-0 mx-auto" method="POST" style = "width: 400px;">
           <div class="form-group">
             <label for="zipcode">Zip Code:</label>
-            <input name="text" id ="zipcode" class="form-control mr-sm-2 ml-2" placeholder="enter zip code">
+            <input name="zipcode" id ="zipcode" class="form-control mr-sm-2 ml-2" placeholder="enter zip code">
           </div>
-          <button class="btn btn-outline-success my-5 my-sm-0" type="submit">Plot</button> 
-          <div class="form-group ml-5">
-            <label for="state">State:</label>
-            <input name="text" id ="state" class="form-control mr-sm-2 ml-2" placeholder="enter state">
-          </div> 
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Plot</button> 
-
+          <button class="btn btn-success my-5 my-sm-0" type="submit">Plot</button> 
         </form> 
 
      <!--form class="form-inline my-2 my-lg-0" method="POST">
@@ -98,9 +75,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <!--script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
@@ -141,13 +118,13 @@
       "options":{
         title:{
           display: true,
-          text: '5-year Home Value Trend',
+          text: '5-year Home Value Trend (thousand dollar)',
           fontSize: 20,
           fontWeight: "bold"
         }
       }});
     </script>
-  </body>
+</body>
 </html>
 
 {% endblock %}  

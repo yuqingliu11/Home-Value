@@ -1,3 +1,15 @@
+### Home Value Prediction Web App
+
+A few quick tips
+
+1. clone to local repo
+2. sudo pip install -r requirements.txt
+
+If problems ever arrise when installing a certain tool (which is not unusual), try taking away the version requirement.
+
+The following are introductory instruction that comes with the flask template:
+
+
 ### Deploying a Flask application in AWS: An end-to-end tutorial
 
 This is the code that goes along with the detailed writeup here:
