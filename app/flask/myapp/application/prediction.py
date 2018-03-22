@@ -17,7 +17,7 @@ def diff_month(d1, d2):
 
 # check if user input date is valid
 def check_date(test_date):
-	"""Takes a date and check if the date matches yyyy-mm format and between 2018-01 and 2099-12"""
+	"""Takes a date and check if the date matches yyyy-mm format and between 2018-01 and 2099-12."""
      if (len(test_date.split('-'))==2):
           date = test_date.split('-')
           try:
@@ -41,7 +41,7 @@ def timeseries_predict(all_parameters, zipcode,test_date):
 	Args:
 		all_parameters: pre saved csv in the directory that contains the time series
 						decompositon parameters and mean/sd of random noise for all zip codes.
-		zip code: user input zip code string.
+		zipcode: user input zip code string.
 		test_date: user input date in yyyy-mm format.
 
 	Returns:
@@ -68,7 +68,7 @@ def adjust_predict(all_means, base_result, hometype, zipcode):
 		all_means: pre saved csv contains median home value of seven home types for all zipcodes.
 		base_result: a list contains initial prediction by timeseries_predict().
 		hometype: user input a string indicating the interest home type; 7 categories allowed.
-		zip code: user input zip code string.
+		zipcode: user input zip code string.
 
 	Returns:
 		A list of three elements: adjusted point estimation, lower bound of 95% CI,
