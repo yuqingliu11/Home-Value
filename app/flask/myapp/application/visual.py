@@ -2,8 +2,11 @@ import pandas as pd
 import numpy as np
 
 def plot(zipcode):
+     """This function takes a user input zip code and extract history home values from csv file.
+     It returns the a list of most recent 5 year dates, a list of most recent 5 years history price,
+     a list of most recent 5 year national mean price, and the indices of missing values."""
      price = pd.read_csv('static/data/Zip_MedianListingPrice_AllHomes.csv',converters={'RegionName': str})
-     sqft = pd.read_csv('static/data/Zip_MedianListingPricePerSqft_AllHomes.csv',converters={'RegionName': str})
+     #sqft = pd.read_csv('static/data/Zip_MedianListingPricePerSqft_AllHomes.csv',converters={'RegionName': str})
      searched_zip = price.loc[price['RegionName'] == zipcode]
      if (searched_zip.shape[0]==0):
           return("error")
@@ -26,10 +29,3 @@ def plot(zipcode):
 #     location = (', ').join(searched_zip[['City','State']] .values.tolist()[0])
      return(location)  
 
-def plot_state():   
-     state = "CA"
-     x = range(len(price.columns)-12*5-1,len(price.columns))
-     dates = price.columns[len(price.columns)-12*5-1 : len(price.columns)]
-     searched_state = price.loc[price['State'] == state, dates]
-     state_mean = searched_state.mean(axis=0)
-     return(x,state_mean)
