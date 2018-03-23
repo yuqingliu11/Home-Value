@@ -11,7 +11,10 @@ from application.prediction import predict_price
 # Pandas
 import pandas as pd
 import numpy as np
+import logging
 # from flask_bootstrap import Bootstrap
+
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
 
 # Elastic Beanstalk initalization
 application = Flask(__name__)
@@ -21,7 +24,9 @@ application.debug=True
 application.secret_key = 'cC1YCIWOj9GgWspgNEo2'
 # application.secret_key = 'yfvjkI7803otyFhkmgvv'
 
+
 try:
+    logging.debug('Read parameters file')
     all_parameters = pd.read_sql('SELECT * FROM all_parameters', db.engine)
     all_means = pd.read_sql('SELECT * FROM all_means', db.engine)
     # print("all_parameters:")
@@ -40,6 +45,7 @@ def index():
 @application.route('/visualization', methods=['GET', 'POST'])
 def visualization():
     #input_zip = "60201"
+    logging.debug('plot data')
     if request.method == 'POST':
         input_zip = request.form['zipcode']
         if (plot(input_zip)=="error"):
@@ -54,10 +60,12 @@ def visualization():
         desc = "The historical data of zip code 60201 is displayed below."
         #location = detect_loc("60201")
     #desc = "The historical data of zip code " + input_zip + " is displayed below."
+    logging.debug('Generate visualization page')
     return render_template('visualization.html', labels = x, data = y1, data2 = y2, data3 = miss, result_desc = desc)
 
 @application.route('/prediction', methods=['GET', 'POST'])
 def prediction():
+    logging.debug('make prediction')
     output = "    "
     if request.method == 'POST':
         # ??? please know how to test the validity of those things!
@@ -74,7 +82,7 @@ def prediction():
         else:
             pred = [int(p) for p in pred]
             output = "The estimated price is between $"+ str(pred[1]) +" and $" + str(pred[2]) + "."
-    
+    logging.debug('Generate prediction page')
     return render_template('prediction.html', prediction = output)
 
 if __name__ == '__main__':
