@@ -40,9 +40,9 @@ To reproduce the application
 Application Screenshot
 ------------
 
-[Home](https://github.com/yuqingliu11/Home-Value/Home.png)
-[Visualization](https://github.com/yuqingliu11/Home-Value/Visual.png)
-[Prediction](https://github.com/yuqingliu11/Home-Value/Prediction.png)
+[Home](https://github.com/yuqingliu11/Home-Value/Home.png)<br />
+[Visualization](https://github.com/yuqingliu11/Home-Value/Visual.png)<br />
+[Prediction](https://github.com/yuqingliu11/Home-Value/Prediction.png)<br />
 
 
 Repository Structure
@@ -87,11 +87,11 @@ Other
 ------------
 
 Team:
-  Developer: Yuqing Liu
-  Project Owner: Johnny Chiu
-  QA: Spencer Moon
+  Developer: Yuqing Liu<br />
+  Project Owner: Johnny Chiu<br />
+  QA: Spencer Moon<br />
 
-[Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2143068) helped the team track project progress.
+[Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2143068) helped the team track project progress.<br />
 
 The presentation slides can be found [here](https://github.com/yuqingliu11/Home-Value/Demo.pdf)
 
