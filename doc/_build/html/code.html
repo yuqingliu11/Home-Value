@@ -33,18 +33,23 @@
   <div class="section" id="module-data">
 <span id="data-ingestion-and-model-fitting"></span><h1>Data Manipulation<a class="headerlink" href="#module-data" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="create_db.db_define">
-<code class="descclassname">base_timeseries</code><code class="descname">timeseries_decompose</code><span class="sig-paren">(</span><em>zipcode</em><span class="sig-paren">)</span><a class="headerlink" href="#create_db.db_define" title="Permalink to this definition">¶</a></dt>
+<dt id="parameters.base_timeseries">
+<code class="descclassname">base_timeseries.</code><code class="descname">timeseries_decompose</code><span class="sig-paren">(</span><em>zipcode</em><span class="sig-paren">)</span><a class="headerlink" href="#create_db.db_define" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function takes a zipcode and performs trend removal and seasonal decomposition. The parameters of trend slope, intercept, 12-month seasonality and ditribution of noise are returned.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>zipcode: a zipcode from Zillow Home Listings and Sales data</dd>
+<dd>zipcode: a zipcode from Zillow Home Listings and Sales data.</dd>
 <dt>Returns:</dt>
-<dd>Dataframe with zipcode, residual_median, residual_sd, intercept, slope, cycle</dd>
+<dd>Dataframe with zipcode, residual_median, residual_sd, intercept, slope, cycle.</dd>
 </dl>
 </dd></dl>
 
 
+<span class="target" id="module-modeling"></span><dl class="function">
+<dt id="model.diff_month">
+<code class="descclassname">type_adjustment.</code><code class="descname">get_diff_mean</code><span class="sig-paren">(</span><em>allzips</em>, <em>zipcode</em>, <em>df</em>, <em>allhome</em><span class="sig-paren">)</span><a class="headerlink" href="#build_key.read_item_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function takes a zipcode and look up in the data file for its median prices of all home types. It then calculates the ratio between price of each type and overall median price, and returns a list of ratios.</p>
+</dd>
 
 
 
@@ -78,7 +83,7 @@
 
 <span class="target" id="module-modeling"></span><dl class="function">
 <dt id="model.check_date">
-<code class="descclassname">prediction.</code><code class="descname">check_date</code><span class="sig-paren">(</span><em>d1</em>, <em>test_date</em><span class="sig-paren">)</span><a class="headerlink" href="#build_key.read_item_names" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">prediction.</code><code class="descname">check_date</code><span class="sig-paren">(</span><em>test_date</em><span class="sig-paren">)</span><a class="headerlink" href="#build_key.read_item_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a date and check if the date matches yyyy-mm format and between 2018-01 and 2099-12.</p>
 </dd>
 
@@ -127,37 +132,6 @@
 
 
 
-<div class="section" id="module-model">
-<span id="model-building-and-use"></span><h1>Model building and use<a class="headerlink" href="#module-model" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="model.build_recommender">
-<code class="descclassname">model.</code><code class="descname">build_recommender</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#model.build_recommender" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function takes order, item, and rating data returns a
-KNN recommendation engine.</p>
-<dl class="docutils">
-<dt>Args: </dt>
-<dd>data: dataframe with columns order_id, product_id, and rating</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="model.give_recommendation">
-<code class="descclassname">model.</code><code class="descname">give_recommendation</code><span class="sig-paren">(</span><em>model</em>, <em>raw_id</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#model.give_recommendation" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function takes a KNN model and a raw_id as input 
-and returns the five nearest neighbors to the original item 
-if the item was in the training set or the five most popular
-items if the original item was not in the training set.</p>
-<dl class="docutils">
-<dt>Args: </dt>
-<dd>model: trained KNN model from surprise package
-raw_id: the raw_id (InstCart ID) for the item
-key: the product_id/product_name key dictionary</dd>
-<dt>Returns: </dt>
-<dd>Five recommendation items, five closest neighbors if known 
-item or five most popular items if unknown item.</dd>
-</dl>
-</dd></dl>
-</div>
 
 
           </div>
@@ -190,7 +164,7 @@ item or five most popular items if unknown item.</dd>
   </ul></li>
 </ul>
 </div>
-<div id="searchbox" style="display: none" role="search">
+<!--div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -201,7 +175,7 @@ item or five most popular items if unknown item.</dd>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script-->
         </div>
       </div>
       <div class="clearer"></div>
