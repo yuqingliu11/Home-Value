@@ -23,9 +23,4 @@ def plot(zipcode):
           national_mean = national_mean.tolist()
           return(dates, yprice, national_mean, missing_fill)
 
-#def detect_loc(zipcode):  
-#	 price = pd.read_csv('static/data/Zip_MedianListingPrice_AllHomes.csv',converters={'RegionName': str})
-#     searched_zip = price.loc[price['RegionName'] == zipcode]
-#     location = (', ').join(searched_zip[['City','State']] .values.tolist()[0])
-     return(location)  
 
