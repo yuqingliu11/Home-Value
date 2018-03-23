@@ -40,33 +40,29 @@ To reproduce the application
 Application Screenshot
 ------------
 
-[Home](https://github.com/yuqingliu11/Home-Value/Home.png)<br />
-[Visualization](https://github.com/yuqingliu11/Home-Value/Visual.png)<br />
-[Prediction](https://github.com/yuqingliu11/Home-Value/Prediction.png)<br />
+[Home](https://github.com/yuqingliu11/Home-Value/tree/master/Home.png)<br />
+[Visualization](https://github.com/yuqingliu11/Home-Value/tree/master/Visual.png)<br />
+[Prediction](https://github.com/yuqingliu11/Home-Value/tree/master/Prediction.png)<br />
 
 
 Repository Structure
 ------------
-
-    ├── LICENSE
     │
-    ├── README.md                 <- Decription of how to reproduce the application.
+    ├── README.md                   <- Decription of how to reproduce the application.
+    │
+    ├── analyze                     <- Data exploration process.
     │    
-    ├── requirements.txt          <- The requirements file with python package names to reproduce the. environment.
+    ├── doc                         <- Sphinx documention files.
+    │       
+    ├── screenshots                 <- Screen shots of the web applicatio interface.
     │
-    ├── analyze                   <- Data exploration process.
-    │    
-    ├── doc                       <- Sphinx documention files.
-    │   
-    ├── screenshots               <- Screen shots of the web applicatio interface.
-    │
-    ├── app                       <- Source code for the project.
+    ├── app                         <- Source code for the project.
     │   │
-    │   ├── flask-aws             <- Virtual Enviornment.
+    │   ├── flask-aws               <- Virtual Enviornment.
     │   │
-    │   ├── myapp                 <- All files for running the application.
+    │   ├── myapp                   <- All files for running the application.
     │         │
-    │         ├── application     <- backend algorithms.
+    │         ├── application       <- backend algorithms.
     │         │       │ 
     │         │       ├── base_timeseries.py     <- Generate parameter file "base_parameters.csv"
     │         │       │ 
@@ -78,9 +74,13 @@ Repository Structure
     │         │       │ 
     │         │       ├── unittest.py            <- Unit test script for functions in prediction.py
     │         │             
-    │         ├── static          <- Data, images and style files for front end.
+    │         ├── static            <- Data, images and style files for front end.
     │         │             
-    │         ├── templates       <- Html files for user interface.
+    │         ├── templates         <- Html files for user interface.
+    │         │             
+    │         ├── db_initialization.py   <- Connect to RDS.
+    │         │             
+    │         ├── requirements.txt  <- The requirements file with python package names to reproduce environment.
 
 
 Other
@@ -93,7 +93,7 @@ Team:
 
 [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2143068) helped the team track project progress.<br />
 
-The presentation slides can be found [here](https://github.com/yuqingliu11/Home-Value/Demo.pdf)
+The presentation slides can be found [here](https://github.com/yuqingliu11/Home-Value/tree/master/Demo.pdf)
 
   
 
